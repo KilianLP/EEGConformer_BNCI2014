@@ -5,7 +5,7 @@ from torch.utils.data import random_split
 from braindecode.datasets import MOABBDataset
 from braindecode.preprocessing import preprocess, Preprocessor, exponential_moving_standardize
 from braindecode.preprocessing.windowers import create_windows_from_events
-from braindecode.training import EEGClassifier
+from braindecode.classifier import EEGClassifier
 from braindecode.models import EEGConformer
 from braindecode.util import set_random_seeds
 
@@ -52,13 +52,11 @@ preprocessors = [
 ]
 preprocess(dataset, preprocessors)
 
-# Use the exact window the paper used: 2–6 s of each trial (4 s window).
 sfreq = dataset.datasets[0].raw.info["sfreq"]
 window_size_samples = int(4 * sfreq)
-trial_start_offset_samples = int(2 * sfreq)
-trial_stop_offset_samples = int(
-    (6 - (dataset.datasets[0].raw.n_times / sfreq)) * sfreq
-)
+
+trial_start_offset_samples = 0
+trial_stop_offset_samples = 0
 
 windows_dataset = create_windows_from_events(
     dataset,
@@ -91,20 +89,16 @@ n_classes = 4  # four motor imagery classes
 model = EEGConformer(
     n_chans=n_chans,
     n_outputs=n_classes,
-    input_window_samples=input_window_samples,
+    n_times=input_window_samples,
     n_filters_time=N_FILTERS,
     filter_time_length=TEMPORAL_KERNEL,
     pool_time_length=POOL_KERNEL,
     pool_time_stride=POOL_STRIDE,
-    att_depth=ATT_DEPTH,
-    att_heads=ATT_HEADS,
+    num_layers=ATT_DEPTH,
+    num_heads=ATT_HEADS,
 )
-if torch.cuda.is_available():
-    device = torch.device("cuda")
-elif torch.backends.mps.is_available():
-    device = torch.device("mps")
-else : 
-    device = torch.device('cpu')
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 clf = EEGClassifier(
     model,
@@ -119,5 +113,6 @@ clf = EEGClassifier(
 
 clf.fit(train_set, y=None, epochs=EPOCHS)
 
-acc = clf.score(test_set, y=None)
+y_test = [test_set[i][1] for i in range(len(test_set))]
+acc = clf.score(test_set, y=y_test)
 print("Test accuracy:", acc)
