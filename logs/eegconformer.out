@@ -1,0 +1,423 @@
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 4 - 40 Hz
+
+IIR filter parameters
+---------------------
+Butterworth bandpass zero-phase (two-pass forward and reverse) non-causal filter:
+- Filter order 16 (effective, after forward-backward)
+- Cutoffs at 4.00, 40.00 Hz: -6.02, -6.02 dB
+
+  epoch    train_loss      dur
+-------  ------------  -------
+      1        [36m1.4166[0m  14.6656
+      2        [36m1.3890[0m  0.2867
+      3        1.4166  0.2842
+      4        1.4127  0.2823
+      5        1.3976  0.2850
+      6        1.4081  0.2823
+      7        1.4161  0.2817
+      8        1.3929  0.2820
+      9        1.3989  0.2822
+     10        1.4035  0.2826
+     11        1.3992  0.2828
+     12        1.3924  0.2823
+     13        [36m1.3795[0m  0.2841
+     14        [36m1.3643[0m  0.2831
+     15        [36m1.3472[0m  0.2818
+     16        [36m1.2928[0m  0.2825
+     17        [36m1.1653[0m  0.2824
+     18        [36m1.0762[0m  0.2823
+     19        [36m0.9645[0m  0.2824
+     20        [36m0.9416[0m  0.2876
+     21        [36m0.8867[0m  0.2826
+     22        0.9252  0.2819
+     23        [36m0.8615[0m  0.2817
+     24        0.8853  0.2825
+     25        0.8635  0.2825
+     26        0.8747  0.2853
+     27        [36m0.8566[0m  0.2825
+     28        [36m0.8435[0m  0.2824
+     29        [36m0.7943[0m  0.2826
+     30        [36m0.7907[0m  0.2823
+     31        0.8285  0.2835
+     32        [36m0.7611[0m  0.2830
+     33        0.8006  0.2876
+     34        0.7980  0.2825
+     35        [36m0.7579[0m  0.2837
+     36        0.7878  0.2824
+     37        [36m0.7154[0m  0.2822
+     38        0.7572  0.2823
+     39        0.7855  0.2821
+     40        0.7378  0.2825
+     41        0.7612  0.2820
+     42        [36m0.6813[0m  0.2828
+     43        0.7311  0.2828
+     44        0.7843  0.2823
+     45        0.7197  0.2824
+     46        0.6970  0.2874
+     47        0.6834  0.2829
+     48        0.6883  0.2830
+     49        0.6841  0.2825
+     50        [36m0.6452[0m  0.2826
+     51        0.6542  0.2824
+     52        [36m0.6090[0m  0.2823
+     53        0.7139  0.2829
+     54        0.6766  0.2834
+     55        0.6445  0.2828
+     56        [36m0.5918[0m  0.2831
+     57        0.6261  0.2834
+     58        0.6089  0.2826
+     59        0.6322  0.2830
+     60        [36m0.5773[0m  0.2830
+     61        [36m0.5701[0m  0.2848
+     62        0.5822  0.2821
+     63        [36m0.5326[0m  0.2830
+     64        [36m0.5241[0m  0.2827
+     65        [36m0.4927[0m  0.2828
+     66        0.5374  0.2830
+     67        [36m0.4759[0m  0.2829
+     68        [36m0.4590[0m  0.2839
+     69        0.5481  0.2827
+     70        0.4875  0.2818
+     71        0.4623  0.2829
+     72        [36m0.4333[0m  0.2834
+     73        0.5719  0.2831
+     74        [36m0.4258[0m  0.2830
+     75        0.4778  0.2838
+     76        0.4346  0.2823
+     77        0.4459  0.2826
+     78        0.4328  0.2828
+     79        0.4849  0.2828
+     80        0.4304  0.2833
+     81        [36m0.3915[0m  0.2835
+     82        0.4228  0.2833
+     83        0.3932  0.2838
+     84        0.4343  0.2831
+     85        [36m0.3771[0m  0.2825
+     86        0.4315  0.2827
+     87        [36m0.3703[0m  0.2827
+     88        0.3983  0.2826
+     89        0.3782  0.2836
+     90        [36m0.3102[0m  0.2838
+     91        0.3363  0.2827
+     92        0.3892  0.2830
+     93        0.3715  0.2821
+     94        0.3673  0.2829
+     95        0.3418  0.2832
+     96        0.3341  0.2832
+     97        [36m0.3050[0m  0.2827
+     98        0.4041  0.2830
+     99        0.3310  0.2820
+    100        0.3546  0.2826
+    101        [36m0.2861[0m  0.2871
+    102        0.3404  0.2838
+    103        0.2922  0.2835
+    104        0.3119  0.2828
+    105        0.3010  0.2830
+    106        0.3091  0.2828
+    107        0.3223  0.2830
+    108        [36m0.2646[0m  0.2829
+    109        0.2739  0.2822
+    110        0.2824  0.2830
+    111        0.2804  0.2835
+    112        0.2979  0.2832
+    113        [36m0.2210[0m  0.2834
+    114        0.2938  0.2828
+    115        0.2660  0.2834
+    116        0.2536  0.2831
+    117        0.2799  0.2836
+    118        0.2623  0.2831
+    119        0.2452  0.2845
+    120        0.2601  0.2831
+    121        0.3153  0.2829
+    122        0.3244  0.2833
+    123        0.3018  0.2830
+    124        0.2348  0.2838
+    125        0.2248  0.2829
+    126        0.2485  0.2835
+    127        0.2211  0.2830
+    128        0.2809  0.2828
+    129        0.2401  0.2828
+    130        0.3047  0.2830
+    131        0.2736  0.2830
+    132        [36m0.1890[0m  0.2827
+    133        0.2021  0.2826
+    134        0.2118  0.2833
+    135        0.2053  0.2830
+    136        0.2064  0.2831
+    137        0.2437  0.2839
+    138        0.2087  0.2829
+    139        0.1895  0.2831
+    140        0.2328  0.2818
+    141        0.2220  0.2828
+    142        0.1982  0.2829
+    143        [36m0.1679[0m  0.2825
+    144        [36m0.1210[0m  0.2830
+    145        0.1947  0.2828
+    146        0.1778  0.2835
+    147        0.1940  0.2828
+    148        0.2200  0.2823
+    149        0.1405  0.2845
+    150        0.2526  0.2834
+    151        0.2624  0.2832
+    152        0.1750  0.2828
+    153        0.1992  0.2825
+    154        0.1769  0.2831
+    155        0.1801  0.2828
+    156        0.1343  0.2823
+    157        0.1614  0.2828
+    158        0.1488  0.2824
+    159        0.1565  0.2822
+    160        0.1606  0.2837
+    161        [36m0.1191[0m  0.2832
+    162        0.1437  0.2830
+    163        0.1499  0.2845
+    164        0.1707  0.2820
+    165        0.2400  0.2828
+    166        0.1911  0.2827
+    167        0.1725  0.2822
+    168        0.1380  0.2831
+    169        0.1627  0.2829
+    170        0.1436  0.2833
+    171        [36m0.1184[0m  0.2828
+    172        0.1596  0.2824
+    173        0.1283  0.2831
+    174        0.1494  0.2843
+    175        [36m0.0932[0m  0.2845
+    176        0.1461  0.2827
+    177        0.1193  0.2828
+    178        0.1417  0.2847
+    179        0.1141  0.2823
+    180        0.1930  0.2827
+    181        0.1680  0.2832
+    182        0.1440  0.2828
+    183        0.1422  0.2829
+    184        0.1532  0.2830
+    185        0.1422  0.2826
+    186        0.1081  0.2830
+    187        0.1099  0.2821
+    188        0.1584  0.2837
+    189        0.1329  0.2831
+    190        0.1414  0.2830
+    191        0.1769  0.2831
+    192        0.0970  0.2831
+    193        0.1082  0.2830
+    194        0.1125  0.2830
+    195        0.1197  0.2832
+    196        [36m0.0808[0m  0.2833
+    197        0.1057  0.2833
+    198        0.1003  0.2830
+    199        0.1120  0.2827
+    200        0.1141  0.2827
+    201        0.1266  0.2831
+    202        0.1131  0.2849
+    203        0.0955  0.2824
+    204        0.1134  0.2833
+    205        0.1189  0.2832
+    206        0.1446  0.2829
+    207        0.1103  0.2836
+    208        0.0970  0.2833
+    209        [36m0.0626[0m  0.2831
+    210        0.0728  0.2826
+    211        0.0674  0.2828
+    212        0.1318  0.2827
+    213        0.0734  0.2824
+    214        0.0947  0.2831
+    215        0.0827  0.2835
+    216        0.1087  0.2841
+    217        0.0824  0.2834
+    218        0.1010  0.2826
+    219        0.0944  0.2831
+    220        0.1019  0.2840
+    221        0.0777  0.2835
+    222        0.0710  0.2834
+    223        0.1158  0.2834
+    224        0.0776  0.2830
+    225        0.1104  0.2836
+    226        0.0753  0.2826
+    227        0.1064  0.2834
+    228        [36m0.0621[0m  0.2833
+    229        0.0624  0.2838
+    230        0.1139  0.2848
+    231        0.0870  0.2833
+    232        0.0895  0.2836
+    233        [36m0.0590[0m  0.2835
+    234        0.1022  0.2829
+    235        0.0668  0.2835
+    236        0.0865  0.2834
+    237        0.1870  0.2842
+    238        0.1068  0.2835
+    239        0.0823  0.2831
+    240        0.0662  0.2834
+    241        [36m0.0557[0m  0.2835
+    242        0.0636  0.2827
+    243        0.0575  0.2834
+    244        0.0664  0.2842
+    245        0.0865  0.2833
+    246        0.0926  0.2836
+    247        0.0573  0.2833
+    248        0.0810  0.2839
+    249        0.1202  0.2832
+    250        0.0817  0.2831
+    251        0.0945  0.2834
+    252        0.0976  0.2838
+    253        0.1063  0.2839
+    254        0.0733  0.2835
+    255        0.0730  0.2841
+    256        0.1146  0.2840
+    257        0.0694  0.2837
+    258        0.0898  0.2866
+    259        0.0931  0.2838
+    260        0.0881  0.2829
+    261        0.1021  0.2836
+    262        0.0684  0.2836
+    263        [36m0.0465[0m  0.2835
+    264        0.0642  0.2837
+    265        0.0677  0.2825
+    266        0.0762  0.2855
+    267        0.0552  0.2836
+    268        0.0749  0.2839
+    269        0.0831  0.2836
+    270        [36m0.0356[0m  0.2836
+    271        0.0508  0.2833
+    272        0.0405  0.2835
+    273        0.0437  0.2851
+    274        0.0815  0.2846
+    275        0.0405  0.2833
+    276        0.0556  0.2841
+    277        0.0598  0.2837
+    278        0.0600  0.2835
+    279        0.0573  0.2839
+    280        0.0711  0.2836
+    281        0.0644  0.2826
+    282        0.0505  0.2835
+    283        0.0668  0.2833
+    284        0.0675  0.2836
+    285        0.1113  0.2841
+    286        0.0518  0.2851
+    287        0.0499  0.2841
+    288        0.0511  0.2833
+    289        0.0602  0.2838
+    290        0.0452  0.2837
+    291        [36m0.0349[0m  0.2840
+    292        0.0386  0.2835
+    293        0.0557  0.2840
+    294        0.0425  0.2837
+    295        0.0492  0.2849
+    296        0.0975  0.2842
+    297        0.0436  0.2836
+    298        0.0498  0.2841
+    299        0.0711  0.2836
+    300        0.0455  0.2835
+Test accuracy: 0.7844827586206896

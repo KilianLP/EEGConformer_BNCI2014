@@ -1,3 +1,5 @@
+import argparse
+
 import torch
 from torch.optim import Adam
 from torch.utils.data import random_split
@@ -6,9 +8,9 @@ from braindecode.datasets import MOABBDataset
 from braindecode.preprocessing import preprocess, Preprocessor, exponential_moving_standardize
 from braindecode.preprocessing.windowers import create_windows_from_events
 from braindecode.classifier import EEGClassifier
-from braindecode.models import EEGConformer
 from braindecode.util import set_random_seeds
 
+from eegconformer import EEGConformer
 
 # Hyperparameters pulled from “EEG Conformer: Convolutional Transformer for EEG
 # Decoding and Visualization” (IEEE TNSRE, 2023).
@@ -31,6 +33,19 @@ POOL_STRIDE = 15
 ATT_DEPTH = 6
 ATT_HEADS = 10
 
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--attention",
+        choices=("multiheadattention", "simpleattention"),
+        default="multiheadattention",
+        help="Attention mechanism used in EEGConformer.",
+    )
+    return parser.parse_args()
+
+
+args = parse_args()
 
 set_random_seeds(seed=SEED, cuda=torch.cuda.is_available())
 
@@ -96,6 +111,7 @@ model = EEGConformer(
     pool_time_stride=POOL_STRIDE,
     num_layers=ATT_DEPTH,
     num_heads=ATT_HEADS,
+    attention=args.attention,
 )
 
 device = "cuda" if torch.cuda.is_available() else "cpu"

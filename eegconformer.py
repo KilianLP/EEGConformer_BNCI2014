@@ -8,7 +8,9 @@ from einops.layers.torch import Rearrange
 from torch import Tensor, nn
 
 from braindecode.models.base import EEGModuleMixin
-from braindecode.modules import FeedForwardBlock, MultiHeadAttention
+from braindecode.modules import FeedForwardBlock
+
+from attention import MultiHeadAttention, SimpleAttention
 
 
 class EEGConformer(EEGModuleMixin, nn.Module):
@@ -200,6 +202,7 @@ class EEGConformer(EEGModuleMixin, nn.Module):
         num_layers=6,
         num_heads=10,
         att_drop_prob=0.5,
+        attention="multiheadattention",
         final_fc_length="auto",
         return_features=False,
         activation: type[nn.Module] = nn.ELU,
@@ -254,6 +257,7 @@ class EEGConformer(EEGModuleMixin, nn.Module):
             emb_size=n_filters_time,
             num_heads=num_heads,
             att_drop=att_drop_prob,
+            attention=attention,
             activation=activation_transfor,
         )
 
@@ -366,15 +370,26 @@ class _TransformerEncoderBlock(nn.Sequential):
         emb_size,
         num_heads,
         att_drop,
+        attention="multiheadattention",
         forward_expansion=4,
         activation: type[nn.Module] = nn.GELU,
     ):
+        attention_layers = {
+            "multiheadattention": MultiHeadAttention,
+            "simpleattention": SimpleAttention,
+        }
+        try:
+            attention_layer = attention_layers[attention.lower()]
+        except KeyError as exc:
+            raise ValueError(
+                "attention must be 'multiheadattention' or 'simpleattention'."
+            ) from exc
+
         super().__init__(
             _ResidualAdd(
                 nn.Sequential(
                     nn.LayerNorm(emb_size),
-                    # Nouveau MultiHeadAttention module with 
-                    MultiHeadAttention(emb_size, num_heads, att_drop),
+                    attention_layer(emb_size, num_heads, att_drop),
                     nn.Dropout(att_drop),
                 )
             ),
@@ -417,12 +432,17 @@ class _TransformerEncoder(nn.Sequential):
         emb_size,
         num_heads,
         att_drop,
+        attention="multiheadattention",
         activation: type[nn.Module] = nn.GELU,
     ):
         super().__init__(
             *[
                 _TransformerEncoderBlock(
-                    emb_size, num_heads, att_drop, activation=activation
+                    emb_size,
+                    num_heads,
+                    att_drop,
+                    attention=attention,
+                    activation=activation,
                 )
                 for _ in range(num_layers)
             ]
