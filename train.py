@@ -1,3 +1,5 @@
+import argparse
+
 import torch
 from torch.optim import Adam
 from torch.utils.data import random_split
@@ -35,6 +37,19 @@ ATT_DEPTH = 6
 ATT_HEADS = 10
 
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--attention",
+        choices=("multiheadattention", "simpleattention"),
+        default="multiheadattention",
+        help="Attention mechanism used in EEGConformer.",
+    )
+    return parser.parse_args()
+
+
+args = parse_args()
+
 set_random_seeds(seed=SEED, cuda=torch.cuda.is_available())
 
 # Dataset: BCI Competition IV 2a (BNCI2014_001), subject 1
@@ -55,7 +70,6 @@ preprocessors = [
 ]
 preprocess(dataset, preprocessors)
 
-# Use the exact window the paper used: 2–6 s of each trial (4 s window).
 sfreq = dataset.datasets[0].raw.info["sfreq"]
 window_size_samples = int(4 * sfreq)
 trial_start_offset_samples = 0
@@ -97,8 +111,9 @@ model = EEGConformer(
     filter_time_length=TEMPORAL_KERNEL,
     pool_time_length=POOL_KERNEL,
     pool_time_stride=POOL_STRIDE,
-    att_depth=ATT_DEPTH,
-    att_heads=ATT_HEADS,
+    num_layers=ATT_DEPTH,
+    num_heads=ATT_HEADS,
+    attention=args.attention,
 )
 if torch.cuda.is_available():
     device = "cuda"
