@@ -5,9 +5,12 @@ from torch.utils.data import random_split
 from braindecode.datasets import MOABBDataset
 from braindecode.preprocessing import preprocess, Preprocessor, exponential_moving_standardize
 from braindecode.preprocessing.windowers import create_windows_from_events
-from braindecode.training import EEGClassifier
+from braindecode import EEGClassifier
 from braindecode.models import EEGConformer
 from braindecode.util import set_random_seeds
+
+import time
+import math
 
 
 # Hyperparameters pulled from “EEG Conformer: Convolutional Transformer for EEG
@@ -55,10 +58,8 @@ preprocess(dataset, preprocessors)
 # Use the exact window the paper used: 2–6 s of each trial (4 s window).
 sfreq = dataset.datasets[0].raw.info["sfreq"]
 window_size_samples = int(4 * sfreq)
-trial_start_offset_samples = int(2 * sfreq)
-trial_stop_offset_samples = int(
-    (6 - (dataset.datasets[0].raw.n_times / sfreq)) * sfreq
-)
+trial_start_offset_samples = 0
+trial_stop_offset_samples = 0
 
 windows_dataset = create_windows_from_events(
     dataset,
@@ -91,7 +92,7 @@ n_classes = 4  # four motor imagery classes
 model = EEGConformer(
     n_chans=n_chans,
     n_outputs=n_classes,
-    input_window_samples=input_window_samples,
+    n_times=input_window_samples,
     n_filters_time=N_FILTERS,
     filter_time_length=TEMPORAL_KERNEL,
     pool_time_length=POOL_KERNEL,
@@ -100,11 +101,11 @@ model = EEGConformer(
     att_heads=ATT_HEADS,
 )
 if torch.cuda.is_available():
-    device = torch.device("cuda")
+    device = "cuda"
 elif torch.backends.mps.is_available():
-    device = torch.device("mps")
+    device = "mps"
 else : 
-    device = torch.device('cpu')
+    device = 'cpu'
 
 clf = EEGClassifier(
     model,
@@ -117,7 +118,47 @@ clf = EEGClassifier(
     device=device,
 )
 
+print(f"Starting training for {EPOCHS} epochs")
+
+start_time = time.time()
+
 clf.fit(train_set, y=None, epochs=EPOCHS)
 
-acc = clf.score(test_set, y=None)
+end_time = time.time()
+total_time = end_time - start_time
+
+print("\n" + "="*40)
+print(" BASELINE (SOFTMAX) RESULTS")
+print("="*40)
+
+print(f"Total time         : {total_time:.2f} seconds")
+print(f"Average time/epoch : {total_time / EPOCHS:.2f} seconds")
+
+# PyTorch measures memory differently based on the backend
+if device == "cuda":
+    print(f"VRAM used          : {torch.cuda.max_memory_allocated() / (1024**2):.2f} MB")
+elif device == "mps":
+    try:
+        print(f"VRAM used (Mac)    : {torch.mps.current_allocated_memory() / (1024**2):.2f} MB")
+    except AttributeError:
+        print("VRAM used          : Cannot read on this Mac PyTorch version.")
+else:
+    print("VRAM used          : Not measurable on CPU.")
+
+# Check for NaN values in training loss
+train_losses = clf.history[:, 'train_loss']
+has_nan = any(math.isnan(l) for l in train_losses)
+if has_nan:
+    print("Numerical stability: UNSTABLE (NaN values detected)")
+else:
+    print("Numerical stability: STABLE (No NaN values)")
+
+
+# Evaluation
+
+# On extrait les vraies réponses (y) du jeu de test
+# Braindecode renvoie toujours 3 choses : le signal, l'étiquette, et l'index de la fenêtre
+y_true = [y for _, y, _ in test_set]
+
+acc = clf.score(test_set, y=y_true)
 print("Test accuracy:", acc)
