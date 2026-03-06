@@ -59,7 +59,7 @@ class MultiHeadAttention(nn.Module):
 
 
 class SimpleAttention(nn.Module):
-    """SimA attention block from Koohpayegani and Pirsiavash (2024).
+    """SimA attention block from "SimA: Softmax-Free Attention with Linear Complexity" (https://arxiv.org/html/2206.08898v2).
 
     This implements the softmax-free attention proposed in
     https://arxiv.org/html/2206.08898v2 by L1-normalizing queries and keys
