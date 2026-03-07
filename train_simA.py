@@ -1,12 +1,13 @@
 import torch
 from torch.optim import Adam
 from torch.utils.data import random_split
+import torch.nn as nn
 
 from braindecode.datasets import MOABBDataset
 from braindecode.preprocessing import preprocess, Preprocessor, exponential_moving_standardize
 from braindecode.preprocessing.windowers import create_windows_from_events
 from braindecode import EEGClassifier
-from braindecode.models import EEGConformer
+from eegconformer import EEGConformer
 from braindecode.util import set_random_seeds
 
 import time
@@ -26,7 +27,7 @@ import math
 SEED = 2023
 LR = 2e-4
 BATCH_SIZE = 64
-EPOCHS = 3
+EPOCHS = 300
 N_FILTERS = 40
 TEMPORAL_KERNEL = 25
 POOL_KERNEL = 75
@@ -97,8 +98,9 @@ model = EEGConformer(
     filter_time_length=TEMPORAL_KERNEL,
     pool_time_length=POOL_KERNEL,
     pool_time_stride=POOL_STRIDE,
-    att_depth=ATT_DEPTH,
-    att_heads=ATT_HEADS,
+    num_layers=ATT_DEPTH,        # Changed from att_depth
+    num_heads=ATT_HEADS,         # Changed from att_heads
+    attention="simpleattention"  # Activates SimA
 )
 if torch.cuda.is_available():
     device = "cuda"
@@ -128,7 +130,7 @@ end_time = time.time()
 total_time = end_time - start_time
 
 print("\n" + "="*40)
-print(" BASELINE (SOFTMAX) RESULTS")
+print(" SimpleAttention RESULTS")
 print("="*40)
 
 print(f"Total time         : {total_time:.2f} seconds")

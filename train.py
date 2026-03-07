@@ -8,7 +8,8 @@ from braindecode.datasets import MOABBDataset
 from braindecode.preprocessing import preprocess, Preprocessor, exponential_moving_standardize
 from braindecode.preprocessing.windowers import create_windows_from_events
 from braindecode import EEGClassifier
-from braindecode.models import EEGConformer
+#from braindecode.models import EEGConformer
+from eegconformer import EEGConformer
 from braindecode.util import set_random_seeds
 
 import time
@@ -143,7 +144,7 @@ end_time = time.time()
 total_time = end_time - start_time
 
 print("\n" + "="*40)
-print(" BASELINE (SOFTMAX) RESULTS")
+print(f"{args.attention.upper()} RESULTS")
 print("="*40)
 
 print(f"Total time         : {total_time:.2f} seconds")
