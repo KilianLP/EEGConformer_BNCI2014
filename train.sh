@@ -14,4 +14,4 @@ export TORCH_HOME="$HOME/.cache/torch"
 
 cd /Brain/private/m22jocal/EEGConformer_BNCI2014
 source .venv/bin/activate
-python train.py --attention simpleattention
+python train.py --attentions simpleattention --n-seeds 3
